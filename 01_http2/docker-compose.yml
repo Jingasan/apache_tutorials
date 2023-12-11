@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  apache-server:
+    container_name: apache-http2
+    image: apache-http2:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 443:443
