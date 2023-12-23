@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  apache-server:
+    container_name: apache-basic-auth
+    image: apache-basic-auth:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
