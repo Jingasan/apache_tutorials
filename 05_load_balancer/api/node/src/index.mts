@@ -11,10 +11,11 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 // CORS設定
 app.use(cors());
 // GET
-app.get("/api", async (_req, res) => {
+app.get("/api", async (req, res) => {
   // 自身のコンテナIDをレスポンスとして返す
   return res.status(200).send({
     container_id: process.env.HOSTNAME,
+    header: req.headers,
   });
 });
 // Error 404 Not Found
