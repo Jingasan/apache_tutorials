@@ -12,6 +12,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
 // GET
 app.get("/api", async (_req, res) => {
+  // コンテナ名をレスポンスとして返す
   return res.status(200).send({
     message: process.env.HOSTNAME,
   });
