@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  # 前段のApacheリバースプロキシサーバー
+  apache-server:
+    container_name: apache-reverse-proxy
+    image: apache-reverse-proxy:latest
+    build:
+      context: ./apache
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+  # 後段のGinAPIサーバー
+  gin-api:
+    container_name: gin-api
+    image: gin-api:latest
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
