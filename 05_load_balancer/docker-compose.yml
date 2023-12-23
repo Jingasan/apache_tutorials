@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  # 前段のApacheリバースプロキシサーバー
+  apache-server:
+    image: apache-reverse-proxy:latest
+    build:
+      context: ./apache
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+  # 後段のExpressAPIサーバー
+  express-api:
+    image: express-api:latest
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 3001-3004:3000
+    deploy:
+      mode: replicated
+      replicas: 4
