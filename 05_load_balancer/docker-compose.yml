@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  # 前段のApacheリバースプロキシサーバー
+  # 前段のApacheロードバランサーサーバー
   apache-server:
-    image: apache-reverse-proxy:latest
+    image: apache-load-balancer:latest
     build:
       context: ./apache
       dockerfile: Dockerfile
